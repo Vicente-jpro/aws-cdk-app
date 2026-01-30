@@ -223,7 +223,7 @@ cdk context --clear
 ### Remove CDK toolkit stack
 
 ```bash
-aws cloudformation delete-stack --stack-name CDKToolkit
+aws cloudformation delete-stack --stack-name MyStack
 ```
 
 (Only if you *really* need to re-bootstrap.)
