@@ -36,3 +36,210 @@ Bootstrap enviroment if deploy fail in first atempted.
 cdk bootstrap
 `````````
 
+
+Gotcha 👍 Here’s a **clean, practical AWS CDK command cheat sheet** — the stuff you actually use day-to-day.
+
+---
+
+## 🔧 Setup & Project Creation
+
+### Install CDK
+
+```bash
+npm install -g aws-cdk
+```
+
+### Check version
+
+```bash
+cdk --version
+```
+
+### Create a new CDK app
+
+```bash
+cdk init app --language typescript
+cdk init app --language python
+cdk init app --language java
+```
+
+(Also supports `go`, `csharp`.)
+
+---
+
+## 🔐 AWS Environment
+
+### Bootstrap an account (required once per account/region)
+
+```bash
+cdk bootstrap
+```
+
+Specific account/region:
+
+```bash
+cdk bootstrap aws://ACCOUNT_ID/REGION
+```
+
+Example:
+
+```bash
+cdk bootstrap aws://123456789012/us-east-1
+```
+
+---
+
+## 📦 Dependency Management
+
+### Add a CDK library
+
+```bash
+npm install aws-cdk-lib
+npm install constructs
+```
+
+Python:
+
+```bash
+pip install aws-cdk-lib constructs
+```
+
+---
+
+## 🧠 Understanding What Will Happen
+
+### Synthesize CloudFormation
+
+```bash
+cdk synth
+```
+
+Outputs the generated CloudFormation template.
+
+---
+
+### See what will change (VERY important)
+
+```bash
+cdk diff
+```
+
+Shows:
+
+* ➕ resources to be created
+* 🔄 changes
+* ❌ deletions
+
+---
+
+## 🚀 Deploying
+
+### Deploy all stacks
+
+```bash
+cdk deploy
+```
+
+### Deploy a specific stack
+
+```bash
+cdk deploy MyStack
+```
+
+### Skip approval prompts
+
+```bash
+cdk deploy --require-approval never
+```
+
+---
+
+## 💥 Destroying (careful 😅)
+
+### Destroy all stacks
+
+```bash
+cdk destroy
+```
+
+### Destroy a specific stack
+
+```bash
+cdk destroy MyStack
+```
+
+---
+
+## 📋 Stack Management
+
+### List stacks in the app
+
+```bash
+cdk list
+```
+
+### Show stack metadata
+
+```bash
+cdk ls
+```
+
+---
+
+## 🧪 Debugging & Troubleshooting
+
+### Verbose output
+
+```bash
+cdk deploy --verbose
+```
+
+### Validate app
+
+```bash
+cdk doctor
+```
+
+---
+
+## 🌍 Context & Environment
+
+### View context values
+
+```bash
+cdk context
+```
+
+### Clear cached context
+
+```bash
+cdk context --clear
+```
+
+---
+
+## 🧹 Cleanup & Reset
+
+### Remove CDK toolkit stack
+
+```bash
+aws cloudformation delete-stack --stack-name CDKToolkit
+```
+
+(Only if you *really* need to re-bootstrap.)
+
+---
+
+## 🔥 Most-used workflow (real life)
+
+```bash
+cdk diff
+cdk deploy
+```
+
+That combo saves you from breaking prod 👀
+
+---
+
+
+
