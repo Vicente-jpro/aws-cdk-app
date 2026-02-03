@@ -247,5 +247,11 @@ To replace your image after push you need to run this command.
 aws ecs update-service --force-new-deployment
 ---
 
+## Build and push
+```sh
+docker build -t vicentesimao/simple-app .
+docker tag vicentesimao/simple-app:latest 176276968564.dkr.ecr.us-east-1.amazonaws.com/simple-app:latest
+docker push 176276968564.dkr.ecr.us-east-1.amazonaws.com/simple-app:latest
+```
 
 
