@@ -223,8 +223,12 @@ cdk context --clear
 ### Remove CDK toolkit stack
 
 ```bash
-aws cloudformation delete-stack --stack-name MyStack
+cdk destroy JavaBackendStack 
 ```
+or
+```sh
+aws cloudformation delete-stack --stack-name MyStack
+````
 
 (Only if you *really* need to re-bootstrap.)
 
@@ -234,11 +238,13 @@ aws cloudformation delete-stack --stack-name MyStack
 
 ```bash
 cdk diff
-cdk deploy
 ```
 
-That combo saves you from breaking prod 👀
-
+### Force to update my placeholder image (nginx)
+This command is used when you use a default image like Hello Docker or Nginix to deploy image to ECR.
+To replace your image after push you need to run this command.
+```sh
+aws ecs update-service --force-new-deployment
 ---
 
 
