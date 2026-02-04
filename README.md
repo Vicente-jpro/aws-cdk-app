@@ -254,4 +254,8 @@ docker tag vicentesimao/simple-app:latest 176276968564.dkr.ecr.us-east-1.amazona
 docker push 176276968564.dkr.ecr.us-east-1.amazonaws.com/simple-app:latest
 ```
 
+```sh
+aws ecs update-service --cluster <ECSClusterName-from-output> --service <ECSServiceName-from-output> --force-new-deployment
+```
+
 
